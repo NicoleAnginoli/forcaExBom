@@ -206,11 +206,11 @@ window.onload = function() {
     // OnClick Function
     check = function() {
         list.onclick = function() {
-            var geuss = (this.innerHTML);
+            var geuss = (this.innerHTML.toLowerCase());
             this.setAttribute("class", "active");
             this.onclick = null;
             for (var i = 0; i < word.length; i++) {
-                if (word[i] === geuss) {
+                if (word[i] == geuss) {
                     geusses[i].innerHTML = geuss;
                     counter += 1;
                 }
