@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
   <script type="text/javascript" src="jquery-3.3.1.js"></script>
   <script src="logica.js"></script>
@@ -13,7 +13,11 @@
     </div>
 
     <div class="flex">
-      <p class="categoria" id="catagoryName"></p> 
+      <div class="flex-categoria categoria">Tema:
+        <p id="catagoryName">
+
+        </p>
+      </div> 
       <div class="comoJogar" id="texto">Clique nas letras para adivinhar a palavra</div>
     </div>
     <div id="divglobal">
@@ -26,6 +30,7 @@
         <div class="2">
           <div id="guess">
             <h3><div id="hold"></div></h3>
+            <p id="numLetras"></p>
           </div>
           <div id="buttons"></div>
         

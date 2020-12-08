@@ -43,11 +43,11 @@ window.onload = function() {
     // Select Catagory
     var selectCat = function() {
         if (chosenCategory === categories[0]) {
-            catagoryName.innerHTML = "Tema: ANIMAIS";
+            catagoryName.innerHTML = " ANIMAIS";
         } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = "Tema: ALIMENTO";
+            catagoryName.innerHTML = " ALIMENTO";
         } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = "Tema: COR";
+            catagoryName.innerHTML = " COR";
         }
     }
 
@@ -71,15 +71,20 @@ window.onload = function() {
             wordHolder.appendChild(correct);
             correct.appendChild(guess);
         }
+        letras = word.length;
+        document.getElementById("numLetras").innerHTML = "A palavra tem "+ letras +" letras";
     }
 
     // Show lives
     var comments = function() {
         if (lives == 1){
-            showLives.innerHTML = "Você tem mais " + lives + " chance";
+            showLives.innerHTML = "Você pode errar mais " + lives + " vez";
+        }
+        else if (lives == 9) {
+            showLives.innerHTML = "Você pode errar " + lives + " vezes";
         }
         else {
-            showLives.innerHTML = "Você tem mais " + lives + " chances";
+            showLives.innerHTML = "Você pode errar mais " + lives + " vezes";
         }
         
         if (lives < 1) {
@@ -246,7 +251,7 @@ window.onload = function() {
     play = function() {
         categories = [
             ["carneiro", "coala", "elefante", "urso", "tucano", "papaguaio", "tartaruga"], /*Animais*/
-            ["sushi", "pizza", "estrogonofe", "sorvete", "pastel"], /*Comida*/
+            ["sushi", "pizza", "sorvete", "pastel"], /*Comida*/
             ["amarelo", "vermelho", "preto", "roxo", "marrom"] /*Cor*/
         ];
 
@@ -273,7 +278,7 @@ window.onload = function() {
 
         hints = [
             ["É um mamifero", "Vive na Austrália", "É um animal de grande porte", "É um mamífero", "É uma ave que tem um bico grande e colorido", "Animal que imita a voz do ser humano", "Tem um casco"],
-            ["Surgiu no Japão", "Comida redonda", "Prato que surgiu na Rússia", "Sobremesa gelada", "Comida frita que tem recheio"],
+            ["Surgiu no Japão", "Comida redonda", "Sobremesa gelada", "Comida frita que tem recheio"],
             ["a cor lembra o Sol", "se parece com sangue", "a cor da escuridão", "lembra uma uva", "parece café"]
         ];
 
