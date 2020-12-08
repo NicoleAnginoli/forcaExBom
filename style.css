@@ -239,7 +239,7 @@ button:hover {
 img {
     height: 78px;
     width: 50px;
-    margin-left: 25px;
+    margin: 0px 25px;
 }
 
 #guess {
