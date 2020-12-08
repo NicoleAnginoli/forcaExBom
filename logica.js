@@ -75,7 +75,13 @@ window.onload = function() {
 
     // Show lives
     var comments = function() {
-        showLives.innerHTML = "Você tem +" + lives + " vidas";
+        if (lives == 1){
+            showLives.innerHTML = "Você tem mais " + lives + " chance";
+        }
+        else {
+            showLives.innerHTML = "Você tem mais " + lives + " chances";
+        }
+        
         if (lives < 1) {
             showLives.innerHTML = "Você perdeu!";
         }
@@ -104,7 +110,7 @@ window.onload = function() {
 
     head = function() {
         myStickman = document.getElementById("stickman");
-        context.strokeStyle = '#fefefe';
+        context.strokeStyle = 'black';
         context.lineWidth = 5;
         context.beginPath();
         context.arc(100, 50, 25, 0, Math.PI * 2, true);
@@ -114,7 +120,7 @@ window.onload = function() {
 
     body = function() {
         myStickman = document.getElementById("stickman");
-        context.strokeStyle = '#fefefe';
+        context.strokeStyle = 'black';
         context.beginPath();
         context.moveTo(100, 75);
         context.lineTo(100, 140);
@@ -129,7 +135,7 @@ window.onload = function() {
     }
 
     gallows = function() {
-        context.strokeStyle = '#fefefe';
+        context.strokeStyle = 'black';
         myStickman = document.getElementById("stickman");
         context.lineWidth = 10;
         context.beginPath();
@@ -143,7 +149,7 @@ window.onload = function() {
     };
 
     rightHarm = function() {
-        context.strokeStyle = '#fefefe';
+        context.strokeStyle = 'black';
         context.beginPath();
         context.moveTo(100, 85);
         context.lineTo(60, 100);
