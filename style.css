@@ -32,6 +32,7 @@ body {
 #divglobal {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 #buttons {
@@ -223,7 +224,7 @@ button:hover {
 
 
 .categoria {
-    margin: 20px 0px 40px 83px;
+    margin: 20px 0px 10px 83px;
     font-family: 'Balsamiq Sans', cursive;
     font-weight: 400;
     font-style: normal;
@@ -254,45 +255,9 @@ img {
     display: flex;  
 }
 
-.comoJogar {
-    margin: 20px 80px 40px 0px;
+.num-letras {
+    text-align: center; 
+    font-family: 'Balsamiq Sans', cursive; 
+    font-size: 3rem;
+    margin: 20px 0px 0px 0px;
 }
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    /* border-bottom: 1px dotted black; */
-    /* background-image: url(question.png); */
-  }
-  
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;

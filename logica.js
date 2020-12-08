@@ -17,6 +17,7 @@ window.onload = function() {
 
     // Get elements
     var showLives = document.getElementById("mylives");
+    var showResult = document.getElementById("numLetras");
     // var showCatagory = document.getElementById("scatagory");
     var getHint = document.getElementById("hint");
     var showClue = document.getElementById("clue");
@@ -88,7 +89,11 @@ window.onload = function() {
         }
         
         if (lives < 1) {
-            showLives.innerHTML = "Você perdeu!";
+            showResult.innerHTML = "Você perdeu 😔";
+            showResult.setAttribute("class","num-letras");
+            myButtons.setAttribute("hidden", "true");
+            dica = document.getElementById('hint');
+            dica.classList.remove("active");
             for (var i = 0; i < alphabet.length; i++){
                 list = document.getElementById('letter' + i);
                 list.setAttribute("class", "active");
@@ -100,7 +105,11 @@ window.onload = function() {
         }
         for (var i = 0; i < geusses.length; i++) {
             if (counter + space === geusses.length) {
-                showLives.innerHTML = "Parabéns, você ganhou! 😀";
+                showResult.innerHTML = "Parabéns, você ganhou! 😀";
+                showResult.setAttribute("class","num-letras");
+                dica = document.getElementById('hint');
+                dica.classList.remove("active");
+                myButtons.setAttribute("hidden", "true");
                 for (var i = 0; i < alphabet.length; i++){
                     list = document.getElementById('letter' + i);
                     list.setAttribute("class", "active");
@@ -291,10 +300,12 @@ window.onload = function() {
 
     // Reset
     document.getElementById('reset').onclick = function() {
+        myButtons.removeAttribute("hidden");
+        showResult.classList.remove("num-letras");
         correct.parentNode.removeChild(correct);
         letters.parentNode.removeChild(letters);
         dica = document.getElementById('hint');
-        dica.setAttribute("class", null);
+        dica.classList.remove("active");
         dica.onclick = pegadica;
         showClue.innerHTML = "";
         context.clearRect(0, 0, 400, 400);
