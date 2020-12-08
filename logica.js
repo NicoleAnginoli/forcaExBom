@@ -91,7 +91,7 @@ window.onload = function() {
         if (lives < 1) {
             showResult.innerHTML = "Você perdeu 😔";
             showResult.setAttribute("class","num-letras");
-            myButtons.setAttribute("hidden", "true");
+            //myButtons.setAttribute("hidden", "true");
             dica = document.getElementById('hint');
             dica.classList.remove("active");
             for (var i = 0; i < alphabet.length; i++){
@@ -109,7 +109,7 @@ window.onload = function() {
                 showResult.setAttribute("class","num-letras");
                 dica = document.getElementById('hint');
                 dica.classList.remove("active");
-                myButtons.setAttribute("hidden", "true");
+                //myButtons.setAttribute("hidden", "true");
                 for (var i = 0; i < alphabet.length; i++){
                     list = document.getElementById('letter' + i);
                     list.setAttribute("class", "active");
