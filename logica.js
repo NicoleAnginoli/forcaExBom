@@ -129,7 +129,7 @@ window.onload = function() {
         context.strokeStyle = 'black';
         context.lineWidth = 5;
         context.beginPath();
-        context.arc(100, 50, 25, 0, Math.PI * 2, true);
+        context.arc(200, 100, 35, 0, Math.PI * 2, true);
         context.closePath();
         context.stroke();
     }
@@ -138,8 +138,8 @@ window.onload = function() {
         myStickman = document.getElementById("stickman");
         context.strokeStyle = 'black';
         context.beginPath();
-        context.moveTo(100, 75);
-        context.lineTo(100, 140);
+        context.moveTo(200, 135);
+        context.lineTo(200, 230);
         context.stroke();
     }
 
@@ -155,63 +155,56 @@ window.onload = function() {
         myStickman = document.getElementById("stickman");
         context.lineWidth = 10;
         context.beginPath();
-        context.moveTo(175, 225);
-        context.lineTo(5, 225);
-        context.moveTo(40, 225);
-        context.lineTo(25, 5);
-        context.lineTo(100, 5);
-        context.lineTo(100, 25);
+        context.moveTo(380, 380);
+        context.lineTo(20, 380);
+        context.moveTo(100, 380);
+        context.lineTo(40, 20);
+        context.lineTo(200, 20);
+        context.lineTo(200, 65);
         context.stroke();
     };
 
     rightHarm = function() {
         context.strokeStyle = 'black';
         context.beginPath();
-        context.moveTo(100, 85);
-        context.lineTo(60, 100);
+        context.moveTo(200, 150);
+        context.lineTo(160, 170);
         context.stroke();
     };
 
     leftHarm = function() {
         context.beginPath();
-        context.moveTo(100, 85);
-        context.lineTo(140, 100);
-        context.stroke();
-    };
-
-    rightLeg = function() {
-        context.beginPath();
-        context.moveTo(100, 140);
-        context.lineTo(80, 190);
+        context.moveTo(200, 150);
+        context.lineTo(240, 170);
         context.stroke();
     };
 
     rightFoot = function() {
         context.beginPath();
-        context.moveTo(82, 190);
-        context.lineTo(70, 185);
+        context.moveTo(177, 300);
+        context.lineTo(165, 290);
         context.stroke();
     };
 
 
     leftFoot = function() {
         context.beginPath();
-        context.moveTo(122, 190);
-        context.lineTo(135, 185);
+        context.moveTo(223, 300);
+        context.lineTo(235, 290);
         context.stroke();
     };
 
     rightLeg = function() {
         context.beginPath();
-        context.moveTo(100, 140);
-        context.lineTo(80, 190);
+        context.moveTo(200, 225);
+        context.lineTo(175, 300);
         context.stroke();
     };
 
     leftLeg = function() {
         context.beginPath();
-        context.moveTo(100, 140);
-        context.lineTo(125, 190);
+        context.moveTo(200, 225);
+        context.lineTo(225, 300);
         context.stroke();
     };
 
