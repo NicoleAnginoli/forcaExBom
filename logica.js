@@ -31,7 +31,7 @@ window.onload = function() {
         for (var i = 0; i < alphabet.length; i++) {
             letters.id = 'alphabet';
             list = document.createElement('li');
-            list.id = 'letter';
+            list.id = 'letter' + i;
             list.innerHTML = alphabet[i];
             check();
             myButtons.appendChild(letters);
@@ -84,10 +84,26 @@ window.onload = function() {
         
         if (lives < 1) {
             showLives.innerHTML = "Você perdeu!";
+            for (var i = 0; i < alphabet.length; i++){
+                list = document.getElementById('letter' + i);
+                list.setAttribute("class", "active");
+                list.onclick = null;
+                dica = document.getElementById('hint');
+                dica.setAttribute("class", "active");
+                dica.onclick = null;
+            }
         }
         for (var i = 0; i < geusses.length; i++) {
             if (counter + space === geusses.length) {
                 showLives.innerHTML = "Parabéns, você ganhou! 😀";
+                for (var i = 0; i < alphabet.length; i++){
+                    list = document.getElementById('letter' + i);
+                    list.setAttribute("class", "active");
+                    list.onclick = null;
+                }
+                dica = document.getElementById('hint');
+                dica.setAttribute("class", "active");
+                dica.onclick = null;
             }
         }
     }
@@ -234,7 +250,6 @@ window.onload = function() {
 
 
     // Play
-    //categorias: fruta, cor, animal, objeto, 
     play = function() {
         categories = [
             ["carneiro", "coala", "elefante", "urso", "tucano", "papaguaio", "tartaruga"], /*Animais*/
@@ -261,8 +276,7 @@ window.onload = function() {
     play();
 
     // Hint
-
-    hint.onclick = function() {
+    pegadica = hint.onclick = function() {
 
         hints = [
             ["É um mamifero", "Vive na Austrália", "É um animal de grande porte", "É um mamífero", "É uma ave que tem um bico grande e colorido", "Animal que imita a voz do ser humano", "Tem um casco"],
@@ -273,13 +287,17 @@ window.onload = function() {
         var catagoryIndex = categories.indexOf(chosenCategory);
         var hintIndex = chosenCategory.indexOf(word);
         showClue.innerHTML = "Dica: " + hints[catagoryIndex][hintIndex];
+        this.setAttribute("class", "active");
+        this.onclick = null;
     };
 
     // Reset
-
     document.getElementById('reset').onclick = function() {
         correct.parentNode.removeChild(correct);
         letters.parentNode.removeChild(letters);
+        dica = document.getElementById('hint');
+        dica.setAttribute("class", null);
+        dica.onclick = pegadica;
         showClue.innerHTML = "";
         context.clearRect(0, 0, 400, 400);
         play();
