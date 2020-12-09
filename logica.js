@@ -48,7 +48,7 @@ window.onload = function() {
         } else if (chosenCategory === categories[1]) {
             catagoryName.innerHTML = " ALIMENTO";
         } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = " COR";
+            catagoryName.innerHTML = " CORES";
         }
     }
 
@@ -73,7 +73,7 @@ window.onload = function() {
             correct.appendChild(guess);
         }
         letras = word.length;
-        document.getElementById("numLetras").innerHTML = "A palavra tem "+ letras +" letras";
+        document.getElementById("numLetras").innerHTML = "A palavra tem "+ letras +" letras e é sobre " + "<span style='color: red;'>" + catagoryName + "</span>";
     }
 
     // Show lives
