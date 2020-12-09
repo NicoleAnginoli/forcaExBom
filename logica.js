@@ -260,7 +260,7 @@ window.onload = function() {
     // Play
     play = function() {
         categories = [
-            ["carneiro", "coala", "elefante", "urso", "tucano", "papaguaio", "tartaruga"], /*Animais*/
+            ["carneiro", "coala", "elefante", "urso", "tucano", "papagaio", "tartaruga"], /*Animais*/
             ["sushi", "pizza", "sorvete", "pastel"], /*Comida*/
             ["amarelo", "vermelho", "preto", "roxo", "marrom"] /*Cor*/
         ];
@@ -287,8 +287,8 @@ window.onload = function() {
     pegadica = hint.onclick = function() {
 
         hints = [
-            ["É um mamifero", "Vive na Austrália", "É um animal de grande porte", "É um mamífero", "É uma ave que tem um bico grande e colorido", "Animal que imita a voz do ser humano", "Tem um casco"],
-            ["Surgiu no Japão", "Comida redonda", "Sobremesa gelada", "Comida frita que tem recheio"],
+            ["é um mamífero", "vive na Austrália", "é um animal de grande porte", "é um mamífero", "é uma ave que tem um bico grande e colorido", "animal que imita a voz do ser humano", "tem um casco"],
+            ["surgiu no Japão", "comida italiana", "sobremesa gelada", "comida frita recheada"],
             ["a cor lembra o Sol", "se parece com sangue", "a cor da escuridão", "lembra uma uva", "parece café"]
         ];
 
