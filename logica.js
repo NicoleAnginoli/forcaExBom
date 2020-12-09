@@ -9,6 +9,7 @@ window.onload = function() {
     var chosenCategory; // Selected catagory
     var getHint; // Word getHint
     var word; // Selected word
+    var categoria;
     var guess; // Geuss
     var geusses = []; // Stored geusses
     var lives; // Lives
@@ -44,11 +45,11 @@ window.onload = function() {
     // Select Catagory
     var selectCat = function() {
         if (chosenCategory === categories[0]) {
-            catagoryName.innerHTML = " ANIMAIS";
+            categoria = " ANIMAIS";
         } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = " ALIMENTO";
+            categoria = " ALIMENTOS";
         } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = " CORES";
+            categoria = " CORES";
         }
     }
 
@@ -73,7 +74,7 @@ window.onload = function() {
             correct.appendChild(guess);
         }
         letras = word.length;
-        document.getElementById("numLetras").innerHTML = "A palavra tem "+ letras +" letras e é sobre " + "<span style='color: red;'>" + catagoryName + "</span>";
+        document.getElementById("numLetras").innerHTML = "A palavra tem "+ "<b><span style='color: red;'>" + letras + " letras</b></span> e é sobre " + "<b><span style='color: red;'>" + categoria + "</b></span>";
     }
 
     // Show lives
@@ -274,9 +275,9 @@ window.onload = function() {
         lives = 9;
         counter = 0;
         space = 0;
+        selectCat();
         result();
         comments();
-        selectCat();
         canvas();
     }
 
