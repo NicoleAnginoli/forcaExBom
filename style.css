@@ -299,14 +299,14 @@ img {
 }
 
 .teste {
-    animation: treme 0.2s;
+    animation: treme 0.05s;
     animation-iteration-count: 4;
   }
   
   @keyframes treme {
     0% {margin-left: 0;}
-    25% {margin-left: 3px;}
-    50% {margin-left: 0;}
-    75% {margin-left: -3px;}
-    100% {margin-left: 0;}
+    25% {margin-left: 0px;}
+    50% {margin-left: 2px;}
+    75% {margin-left: 0px;}
+    100% {margin-left: -2px;}
   }

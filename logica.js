@@ -145,7 +145,7 @@ window.onload = function() {
 
     head = function() {
         myStickman = document.getElementById("stickman");
-        context.strokeStyle = 'black';
+        context.strokeStyle = 'red';
         context.lineWidth = 5;
         context.beginPath();
         context.arc(200, 100, 35, 0, Math.PI * 2, true);
@@ -155,7 +155,7 @@ window.onload = function() {
 
     body = function() {
         myStickman = document.getElementById("stickman");
-        context.strokeStyle = 'black';
+        context.strokeStyle = 'red';
         context.beginPath();
         context.moveTo(200, 135);
         context.lineTo(200, 230);
@@ -184,7 +184,7 @@ window.onload = function() {
     };
 
     rightHarm = function() {
-        context.strokeStyle = 'black';
+        context.strokeStyle = 'red';
         context.beginPath();
         context.moveTo(200, 150);
         context.lineTo(160, 170);
