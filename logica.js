@@ -9,6 +9,7 @@ window.onload = function() {
     var chosenCategory; // Selected catagory
     var getHint; // Word getHint
     var word; // Selected word
+    var categoria;
     var guess; // Geuss
     var geusses = []; // Stored geusses
     var lives; // Lives
@@ -44,11 +45,11 @@ window.onload = function() {
     // Select Catagory
     var selectCat = function() {
         if (chosenCategory === categories[0]) {
-            catagoryName.innerHTML = " ANIMAIS";
+            categoria = " ANIMAIS";
         } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = " ALIMENTO";
+            categoria = " ALIMENTOS";
         } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = " COR";
+            categoria = " CORES";
         }
     }
 
@@ -73,25 +74,27 @@ window.onload = function() {
             correct.appendChild(guess);
         }
         letras = word.length;
-        document.getElementById("numLetras").innerHTML = "A palavra tem "+ letras +" letras";
+        document.getElementById("numLetras").innerHTML = "A palavra tem "+ "<b><span style='color: red;'>" + letras + " letras</b></span> e o tema é: " + "<b><span style='color: red;'>" + categoria + "</b></span>";
     }
 
     // Show lives
     var comments = function() {
         if (lives == 1){
-            showLives.innerHTML = "Você pode errar mais " + lives + " vez";
+            showLives.innerHTML = "Você pode errar mais <span style='color: red;'></br>" + lives + " vez</span>";
         }
         else if (lives == 9) {
-            showLives.innerHTML = "Você pode errar " + lives + " vezes";
+            showLives.innerHTML = "Você pode errar <span style='color: red;'></br>" + lives + " vezes</span>";
         }
         else {
-            showLives.innerHTML = "Você pode errar mais " + lives + " vezes";
+            showLives.innerHTML = "Você pode errar mais <span style='color: red;'></br>" + lives + " vezes</span>";
         }
         
         if (lives < 1) {
             showResult.innerHTML = "Você perdeu 😔";
             showResult.setAttribute("class","num-letras");
-            myButtons.setAttribute("hidden", "true");
+            //myButtons.setAttribute("hidden", "true");
+            var reiniciar = document.getElementById('reset')
+            reiniciar.classList.add("reiniciarPerde");
             dica = document.getElementById('hint');
             dica.classList.remove("active");
             for (var i = 0; i < alphabet.length; i++){
@@ -109,7 +112,9 @@ window.onload = function() {
                 showResult.setAttribute("class","num-letras");
                 dica = document.getElementById('hint');
                 dica.classList.remove("active");
-                myButtons.setAttribute("hidden", "true");
+                var reiniciar = document.getElementById('reset')
+                reiniciar.classList.add("reiniciarGanha");
+                //myButtons.setAttribute("hidden", "true");
                 for (var i = 0; i < alphabet.length; i++){
                     list = document.getElementById('letter' + i);
                     list.setAttribute("class", "active");
@@ -140,7 +145,7 @@ window.onload = function() {
 
     head = function() {
         myStickman = document.getElementById("stickman");
-        context.strokeStyle = 'black';
+        context.strokeStyle = 'red';
         context.lineWidth = 5;
         context.beginPath();
         context.arc(200, 100, 35, 0, Math.PI * 2, true);
@@ -150,7 +155,7 @@ window.onload = function() {
 
     body = function() {
         myStickman = document.getElementById("stickman");
-        context.strokeStyle = 'black';
+        context.strokeStyle = 'red';
         context.beginPath();
         context.moveTo(200, 135);
         context.lineTo(200, 230);
@@ -179,7 +184,7 @@ window.onload = function() {
     };
 
     rightHarm = function() {
-        context.strokeStyle = 'black';
+        context.strokeStyle = 'red';
         context.beginPath();
         context.moveTo(200, 150);
         context.lineTo(160, 170);
@@ -249,6 +254,12 @@ window.onload = function() {
                 lives -= 1;
                 comments();
                 animate();
+                var boneco = document.getElementById("stickman");
+                boneco.classList.add("teste");
+                setTimeout(function (){
+                    var boneco = document.getElementById("stickman");
+                    boneco.classList.remove("teste");
+                }, 200);
             } else {
                 comments();
             }
@@ -259,7 +270,7 @@ window.onload = function() {
     // Play
     play = function() {
         categories = [
-            ["carneiro", "coala", "elefante", "urso", "tucano", "papaguaio", "tartaruga"], /*Animais*/
+            ["carneiro", "coala", "elefante", "urso", "tucano", "papagaio", "tartaruga"], /*Animais*/
             ["sushi", "pizza", "sorvete", "pastel"], /*Comida*/
             ["amarelo", "vermelho", "preto", "roxo", "marrom"] /*Cor*/
         ];
@@ -274,9 +285,9 @@ window.onload = function() {
         lives = 9;
         counter = 0;
         space = 0;
+        selectCat();
         result();
         comments();
-        selectCat();
         canvas();
     }
 
@@ -286,8 +297,8 @@ window.onload = function() {
     pegadica = hint.onclick = function() {
 
         hints = [
-            ["É um mamifero", "Vive na Austrália", "É um animal de grande porte", "É um mamífero", "É uma ave que tem um bico grande e colorido", "Animal que imita a voz do ser humano", "Tem um casco"],
-            ["Surgiu no Japão", "Comida redonda", "Sobremesa gelada", "Comida frita que tem recheio"],
+            ["é um mamífero", "vive na Austrália", "é um animal de grande porte", "é um mamífero", "animal com um bico grande", "animal verde", "tem um casco"],
+            ["surgiu no Japão", "comida italiana", "sobremesa gelada", "comida frita recheada"],
             ["a cor lembra o Sol", "se parece com sangue", "a cor da escuridão", "lembra uma uva", "parece café"]
         ];
 
@@ -306,6 +317,9 @@ window.onload = function() {
         letters.parentNode.removeChild(letters);
         dica = document.getElementById('hint');
         dica.classList.remove("active");
+        var reiniciar = document.getElementById('reset')
+        reiniciar.classList.remove("reiniciarGanha");
+        reiniciar.classList.remove("reiniciarPerde");
         dica.onclick = pegadica;
         showClue.innerHTML = "";
         context.clearRect(0, 0, 400, 400);
