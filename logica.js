@@ -74,19 +74,19 @@ window.onload = function() {
             correct.appendChild(guess);
         }
         letras = word.length;
-        document.getElementById("numLetras").innerHTML = "A palavra tem "+ "<b><span style='color: red;'>" + letras + " letras</b></span> e é sobre " + "<b><span style='color: red;'>" + categoria + "</b></span>";
+        document.getElementById("numLetras").innerHTML = "A palavra tem "+ "<b><span style='color: red;'>" + letras + " letras</b></span> e o tema é: " + "<b><span style='color: red;'>" + categoria + "</b></span>";
     }
 
     // Show lives
     var comments = function() {
         if (lives == 1){
-            showLives.innerHTML = "Você pode errar mais " + lives + " vez";
+            showLives.innerHTML = "Você pode errar mais <b><span style='color: red;'>" + lives + " vez</b></span>";
         }
         else if (lives == 9) {
-            showLives.innerHTML = "Você pode errar " + lives + " vezes";
+            showLives.innerHTML = "Você pode errar <b><span style='color: red;'>" + lives + " vezes</b></span>";
         }
         else {
-            showLives.innerHTML = "Você pode errar mais " + lives + " vezes";
+            showLives.innerHTML = "Você pode errar mais <b><span style='color: red;'>" + lives + " vezes</b></span>";
         }
         
         if (lives < 1) {
