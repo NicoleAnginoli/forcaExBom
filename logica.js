@@ -80,19 +80,21 @@ window.onload = function() {
     // Show lives
     var comments = function() {
         if (lives == 1){
-            showLives.innerHTML = "Você pode errar mais <b><span style='color: red;'>" + lives + " vez</b></span>";
+            showLives.innerHTML = "Você pode errar mais <span style='color: red;'></br>" + lives + " vez</span>";
         }
         else if (lives == 9) {
-            showLives.innerHTML = "Você pode errar <b><span style='color: red;'>" + lives + " vezes</b></span>";
+            showLives.innerHTML = "Você pode errar <span style='color: red;'></br>" + lives + " vezes</span>";
         }
         else {
-            showLives.innerHTML = "Você pode errar mais <b><span style='color: red;'>" + lives + " vezes</b></span>";
+            showLives.innerHTML = "Você pode errar mais <span style='color: red;'></br>" + lives + " vezes</span>";
         }
         
         if (lives < 1) {
             showResult.innerHTML = "Você perdeu 😔";
             showResult.setAttribute("class","num-letras");
             //myButtons.setAttribute("hidden", "true");
+            var reiniciar = document.getElementById('reset')
+            reiniciar.classList.add("reiniciarPerde");
             dica = document.getElementById('hint');
             dica.classList.remove("active");
             for (var i = 0; i < alphabet.length; i++){
@@ -110,6 +112,8 @@ window.onload = function() {
                 showResult.setAttribute("class","num-letras");
                 dica = document.getElementById('hint');
                 dica.classList.remove("active");
+                var reiniciar = document.getElementById('reset')
+                reiniciar.classList.add("reiniciarGanha");
                 //myButtons.setAttribute("hidden", "true");
                 for (var i = 0; i < alphabet.length; i++){
                     list = document.getElementById('letter' + i);
@@ -250,6 +254,12 @@ window.onload = function() {
                 lives -= 1;
                 comments();
                 animate();
+                var boneco = document.getElementById("stickman");
+                boneco.classList.add("teste");
+                setTimeout(function (){
+                    var boneco = document.getElementById("stickman");
+                    boneco.classList.remove("teste");
+                }, 200);
             } else {
                 comments();
             }
@@ -287,7 +297,7 @@ window.onload = function() {
     pegadica = hint.onclick = function() {
 
         hints = [
-            ["é um mamífero", "vive na Austrália", "é um animal de grande porte", "é um mamífero", "é uma ave que tem um bico grande e colorido", "animal que imita a voz do ser humano", "tem um casco"],
+            ["é um mamífero", "vive na Austrália", "é um animal de grande porte", "é um mamífero", "animal com um bico grande", "animal verde", "tem um casco"],
             ["surgiu no Japão", "comida italiana", "sobremesa gelada", "comida frita recheada"],
             ["a cor lembra o Sol", "se parece com sangue", "a cor da escuridão", "lembra uma uva", "parece café"]
         ];
@@ -307,6 +317,9 @@ window.onload = function() {
         letters.parentNode.removeChild(letters);
         dica = document.getElementById('hint');
         dica.classList.remove("active");
+        var reiniciar = document.getElementById('reset')
+        reiniciar.classList.remove("reiniciarGanha");
+        reiniciar.classList.remove("reiniciarPerde");
         dica.onclick = pegadica;
         showClue.innerHTML = "";
         context.clearRect(0, 0, 400, 400);
